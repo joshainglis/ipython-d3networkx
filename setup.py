@@ -21,6 +21,6 @@ setup(
                  'License :: OSI Approved :: MIT License'],
     packages=['d3networkx'],
     include_package_data=True,
-    install_requires=["ipython-pip"],
+    install_requires=["ipython-pip", 'networkx'],
     cmdclass=cmdclass('d3networkx'),
 )

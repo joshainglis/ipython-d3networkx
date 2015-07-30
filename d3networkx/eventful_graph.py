@@ -13,8 +13,8 @@ from networkx.generators.classic import empty_graph
 
 from eventful_dict import EventfulDict
 
-class EventfulGraph(networkx.Graph):
 
+class EventfulGraph(networkx.Graph):
     _constructed_callback = None
 
     @staticmethod
@@ -22,7 +22,7 @@ class EventfulGraph(networkx.Graph):
         """Register a callback to be called when a graph is constructed."""
         if callback is None or callable(callback):
             EventfulGraph._constructed_callback = callback
-    
+
     def __init__(self, *pargs, **kwargs):
         """Initialize a graph with edges, name, graph attributes.
         
@@ -49,4 +49,5 @@ def empty_eventfulgraph_hook(*pargs, **kwargs):
         """Wrapper for networkx.generators.classic.empty_graph(...)"""
         wkwargs['create_using'] = EventfulGraph(*pargs, **kwargs)
         return empty_graph(*wpargs, **wkwargs)
+
     return wrapped
